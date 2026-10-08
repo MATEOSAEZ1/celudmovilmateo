@@ -1,0 +1,484 @@
+/* ==========================================================
+   Celudmovil - iPhone 18 Pro Max
+   Desarrollo Web I - estilos.css (único archivo CSS)
+   Bootstrap 5 se encarga de la maqueta (grid, componentes);
+   este archivo contiene colores, fuentes, posicionamiento
+   y visualización propios del sitio.
+   ========================================================== */
+
+/* ---------- 1. Variables globales ---------- */
+:root {
+  /* Paleta tomada del producto y del logo */
+  --celu-ink: #101010;            /* negro del logo */
+  --celu-ink-suave: #1d1f24;
+  --celu-glaciar: #a9c0dd;        /* acabado Glaciar */
+  --celu-glaciar-claro: #e3ecf6;
+  --celu-burdeos: #6e1f36;        /* acabado Burdeos */
+  --celu-burdeos-claro: #f1e3e7;
+  --celu-plata: #e7e9ed;          /* acabado Plata */
+  --celu-papel: #f6f7f9;
+  --celu-blanco: #ffffff;
+  --celu-texto: #22252b;
+  --celu-texto-suave: #5b616b;
+
+  /* Tipografía */
+  --celu-fuente-titulos: "Unbounded", "Segoe UI", sans-serif;
+  --celu-fuente-texto: "Figtree", "Segoe UI", sans-serif;
+
+  /* Forma y espacio */
+  --celu-corte: 28px;             /* esquina cortada, eco de la "C" del logo */
+  --celu-radio: 6px;
+  --celu-espacio-seccion: 5rem;
+
+  /* Variables de Bootstrap que sobrescribimos */
+  --bs-body-font-family: var(--celu-fuente-texto);
+  --bs-body-color: var(--celu-texto);
+  --bs-body-bg: var(--celu-papel);
+  --bs-link-color-rgb: 110, 31, 54;
+  --bs-link-hover-color-rgb: 16, 16, 16;
+  --bs-border-radius: var(--celu-radio);
+}
+
+/* ---------- 2. Base ---------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+h1, h2, h3, .h1, .h2, .h3 {
+  font-family: var(--celu-fuente-titulos);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  color: var(--celu-ink);
+}
+
+h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 700; line-height: 1.05; }
+h2 { font-size: clamp(1.4rem, 2.8vw, 2rem); }
+h3, .h5 { font-size: 1.15rem; }
+
+p { max-width: 68ch; }
+
+a:focus-visible,
+button:focus-visible,
+.form-control:focus-visible {
+  outline: 3px solid var(--celu-glaciar);
+  outline-offset: 2px;
+}
+
+.seccion { padding-block: var(--celu-espacio-seccion); }
+.seccion-clara { background: var(--celu-blanco); }
+
+.titulo-seccion { margin-bottom: 0.5rem; }
+.subtitulo-seccion { color: var(--celu-texto-suave); margin-bottom: 2.5rem; }
+
+/* Forma distintiva: esquinas cortadas */
+.corte {
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--celu-corte)) 0,
+    100% var(--celu-corte),
+    100% 100%,
+    var(--celu-corte) 100%,
+    0 calc(100% - var(--celu-corte))
+  );
+}
+
+/* ---------- 3. Botones ---------- */
+.btn-celu {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--celu-ink);
+  --bs-btn-border-color: var(--celu-ink);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--celu-burdeos);
+  --bs-btn-hover-border-color: var(--celu-burdeos);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--celu-burdeos);
+  --bs-btn-active-border-color: var(--celu-burdeos);
+  --bs-btn-disabled-bg: var(--celu-texto-suave);
+  --bs-btn-disabled-border-color: var(--celu-texto-suave);
+  --bs-btn-focus-shadow-rgb: 110, 31, 54;
+  --bs-btn-border-radius: var(--celu-radio);
+  font-weight: 700;
+}
+
+.btn-outline-celu {
+  --bs-btn-color: var(--celu-ink);
+  --bs-btn-border-color: var(--celu-ink);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--celu-ink);
+  --bs-btn-hover-border-color: var(--celu-ink);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--celu-ink);
+  --bs-btn-focus-shadow-rgb: 16, 16, 16;
+  --bs-btn-border-radius: var(--celu-radio);
+  font-weight: 700;
+}
+
+.badge-celu {
+  background: var(--celu-burdeos);
+  color: #fff;
+}
+
+/* ---------- 4. Barra de navegación ---------- */
+.navbar-celu {
+  background: var(--celu-ink);
+  border-bottom: 3px solid var(--celu-burdeos);
+}
+
+.navbar-celu .navbar-brand { color: #fff; }
+
+.logo-nav {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.marca {
+  font-family: var(--celu-fuente-titulos);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.navbar-celu .nav-link {
+  color: var(--celu-plata);
+  font-weight: 500;
+}
+
+.navbar-celu .nav-link:hover,
+.navbar-celu .nav-link.active {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: var(--celu-glaciar);
+  text-underline-offset: 8px;
+  text-decoration-thickness: 2px;
+}
+
+/* ---------- 5. Hero (Inicio) ---------- */
+.hero {
+  position: relative;
+  z-index: 0;                 /* crea el contexto donde las fotos se mezclan con el fondo */
+  padding-block: 3.5rem 4.5rem;
+  background: linear-gradient(135deg, var(--celu-glaciar-claro) 0%, #c9d9ec 100%);
+}
+
+.hero[data-color="burdeos"] {
+  background: linear-gradient(135deg, var(--celu-burdeos-claro) 0%, #ddbcc6 100%);
+}
+
+.hero[data-color="negro"] {
+  background: linear-gradient(135deg, #eaebed 0%, #c9cbd0 100%);
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.35);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--celu-corte)) 0,
+    100% var(--celu-corte),
+    100% 100%,
+    var(--celu-corte) 100%,
+    0 calc(100% - var(--celu-corte))
+  );
+}
+
+.hero-visual img {
+  height: clamp(250px, 36vw, 430px);
+  width: auto;
+  mix-blend-mode: multiply;   /* el fondo blanco de las fotos desaparece */
+}
+
+.hero-visual img + img { margin-top: 2.5rem; }
+
+.hero p.lead { color: var(--celu-texto-suave); margin-block: 1.25rem 2rem; }
+
+.selector-color {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.swatch {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid var(--celu-blanco);
+  box-shadow: 0 0 0 1px var(--celu-texto-suave);
+  padding: 0;
+  cursor: pointer;
+}
+
+.swatch.activo { box-shadow: 0 0 0 3px var(--celu-ink); }
+.swatch-glaciar { background: var(--celu-glaciar); }
+.swatch-burdeos { background: var(--celu-burdeos); }
+.swatch-negro { background: var(--celu-ink); }
+
+/* ---------- 6. Tarjetas de Inicio ---------- */
+.tarjeta-producto {
+  border: 0;
+  border-top: 4px solid var(--celu-glaciar);
+  border-radius: 0;
+  background: var(--celu-blanco);
+  padding: 0.5rem;
+}
+
+.icono-card {
+  font-size: 2.2rem;
+  color: var(--celu-burdeos);
+  line-height: 1;
+}
+
+/* ---------- 7. Precios ---------- */
+.tarjeta-precio {
+  border: 0;
+  background: var(--celu-blanco);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% 100%,
+    0 100%
+  );
+}
+
+.precio {
+  font-family: var(--celu-fuente-titulos);
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: var(--celu-burdeos);
+  margin-bottom: 0.5rem;
+}
+
+.equivalente { color: var(--celu-texto-suave); font-size: 0.9rem; margin-bottom: 0.75rem; }
+
+.nota-precios { color: var(--celu-texto-suave); font-size: 0.95rem; margin-top: 1.5rem; }
+
+/* ---------- 8. Casos de éxito ---------- */
+.resena {
+  max-width: 44rem;
+  margin-inline: auto;
+  padding: 2.5rem 3.5rem 3.5rem;
+  background: var(--celu-glaciar-claro);
+  text-align: center;
+}
+
+.resena blockquote { font-size: 1.25rem; font-weight: 500; margin-block: 1rem; }
+.resena .estrellas { color: var(--celu-burdeos); letter-spacing: 3px; }
+.resena .autor { color: var(--celu-texto-suave); margin-bottom: 0; }
+
+#carruselCasos .carousel-control-prev-icon,
+#carruselCasos .carousel-control-next-icon { filter: invert(1); }
+
+#carruselCasos .carousel-indicators [data-bs-target] { background-color: var(--celu-ink); }
+
+/* ---------- 9. Encabezado de páginas internas ---------- */
+.encabezado-pagina {
+  padding-block: 2.5rem 1rem;
+}
+
+.encabezado-pagina p { color: var(--celu-texto-suave); margin-bottom: 0; }
+
+/* ---------- 10. Características ---------- */
+.articulo {
+  padding-block: 1.75rem;
+  border-bottom: 1px solid var(--celu-plata);
+}
+
+.articulo:last-of-type { border-bottom: 0; }
+
+.marco-img {
+  aspect-ratio: 4 / 3;
+  background: var(--celu-plata);
+  overflow: hidden;
+}
+
+.marco-img img { width: 100%; height: 100%; }
+
+.foto-render { object-fit: contain; mix-blend-mode: multiply; }
+.foto-real { object-fit: cover; }
+
+.lista-atributos { padding-left: 1.1rem; margin-bottom: 0; }
+.lista-atributos li::marker { color: var(--celu-burdeos); }
+
+.aside-caja {
+  position: sticky;
+  top: 6rem;
+  padding: 1.5rem;
+  background: var(--celu-blanco);
+  border-left: 4px solid var(--celu-burdeos);
+}
+
+.aside-caja h2 { font-size: 1rem; margin-bottom: 0.75rem; }
+.aside-caja ul { margin-bottom: 1.5rem; }
+.aside-caja li { margin-bottom: 0.4rem; }
+
+.tabla-comparar th,
+.tabla-comparar td { vertical-align: middle; }
+
+.tabla-comparar thead th { background: var(--celu-ink); color: #fff; font-weight: 700; }
+
+.tabla-comparar .col-max { background: var(--celu-glaciar-claro); font-weight: 600; }
+
+/* ---------- 11. Galería ---------- */
+.tile-galeria {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  aspect-ratio: 4 / 5;
+  background: var(--celu-plata);
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.tile-galeria img { width: 100%; height: 100%; }
+
+.tile-galeria:hover { background: var(--celu-glaciar-claro); }
+
+.pie-foto { font-size: 0.9rem; color: var(--celu-texto-suave); margin: 0.5rem 0 0; }
+
+.pagination {
+  --bs-pagination-color: var(--celu-ink);
+  --bs-pagination-active-bg: var(--celu-ink);
+  --bs-pagination-active-border-color: var(--celu-ink);
+  --bs-pagination-focus-color: var(--celu-ink);
+  --bs-pagination-hover-color: var(--celu-burdeos);
+}
+
+.encabezado-pagina + section { margin-top: 1rem; }
+
+#modalFoto img { max-height: 75vh; width: auto; max-width: 100%; }
+
+/* ---------- 12. Preguntas frecuentes ---------- */
+.accordion {
+  --bs-accordion-btn-color: var(--celu-ink);
+  --bs-accordion-active-color: var(--celu-ink);
+  --bs-accordion-active-bg: var(--celu-glaciar-claro);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2rem rgba(110, 31, 54, 0.25);
+  --bs-accordion-border-radius: 0;
+  --bs-accordion-inner-border-radius: 0;
+}
+
+.accordion-button { font-weight: 700; }
+
+/* ---------- 13. Contacto ---------- */
+.seccion-contacto { background: var(--celu-glaciar-claro); padding-block: 3.5rem 5rem; }
+
+.caja-contacto { background: var(--celu-blanco); padding: 2rem; height: 100%; }
+
+.datos-tienda { list-style: none; padding: 0; margin: 1.25rem 0 0; }
+.datos-tienda li { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
+.datos-tienda i { color: var(--celu-burdeos); font-size: 1.15rem; }
+
+.mapa iframe { border: 0; }
+
+/* ---------- 14. Pie de página ---------- */
+.footer-celu {
+  background: var(--celu-ink);
+  color: var(--celu-plata);
+  padding-block: 3.5rem 1.5rem;
+}
+
+.footer-celu h2 {
+  font-family: var(--celu-fuente-texto);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.9rem;
+}
+
+.footer-celu a { color: var(--celu-glaciar); text-decoration: none; }
+.footer-celu a:hover { color: #fff; text-decoration: underline; }
+
+.footer-celu ul { list-style: none; padding: 0; margin: 0; }
+.footer-celu li { margin-bottom: 0.45rem; }
+
+.redes a { font-size: 1.5rem; margin-right: 1rem; }
+
+.footer-legal {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 0.9rem;
+  color: #aeb4bf;
+}
+
+.footer-celu .form-label { color: #fff; font-weight: 700; }
+
+/* ---------- 14b. Redes flotantes (borde derecho) ---------- */
+.redes-flotantes {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1030;                /* por debajo de modales y del carrito de Bootstrap */
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.redes-flotantes a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  font-size: 1.4rem;
+  color: #fff;
+  background: var(--celu-ink);
+  text-decoration: none;
+  transition: width 0.15s ease, background 0.15s ease;
+}
+
+.redes-flotantes a:first-child { border-top-left-radius: var(--celu-radio); }
+.redes-flotantes a:last-child { border-bottom-left-radius: var(--celu-radio); }
+
+.redes-flotantes a:hover,
+.redes-flotantes a:focus-visible {
+  width: 58px;
+  background: var(--celu-burdeos);
+  color: #fff;
+}
+
+/* ---------- 15. Carrito ---------- */
+.offcanvas-title { font-family: var(--celu-fuente-titulos); font-weight: 600; }
+
+/* ---------- 16. Accesibilidad de movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+/* ---------- 17. Ajustes responsive ---------- */
+@media (max-width: 575.98px) {
+  .redes-flotantes a { width: 40px; height: 40px; font-size: 1.15rem; }
+  .redes-flotantes a:hover, .redes-flotantes a:focus-visible { width: 46px; }
+  :root { --celu-espacio-seccion: 3.5rem; --celu-corte: 20px; }
+  .resena { padding: 2rem 1.25rem 3.5rem; }
+  .caja-contacto { padding: 1.25rem; }
+  .hero-visual { gap: 0.75rem; }
+}
+
+@media (max-width: 991.98px) {
+  .aside-caja { position: static; }
+}
